@@ -1,0 +1,71 @@
+<div class="header">
+    <app-header></app-header>
+</div>
+<div class="sidenav">
+    <app-side-nav></app-side-nav>
+</div>
+ 
+ <section class="loginform">
+    <div class="container">
+        <div class="signup" id="signup" >
+            <h2>
+             User
+            </h2>
+            <!-- <div class="links">
+                <span class="icon_button"><i class="fab fa-facebook-square"></i>Facebook</span>
+                <span class="img_button"><i class="fab fa-google"></i>Google</span>
+            </div> -->
+            <div class="block">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label>Name</label>
+                        </div>
+                        <input type="text" id="name" class="input_field"  [(ngModel)]="formData.u_name">
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label> UserName</label>
+                        </div>
+                        <input type="email"  class="input_field"  [(ngModel)]="formData.u_username" >
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label> Password</label>
+                        </div>
+                        <input type="password" id="pass" class="input_field"  [(ngModel)]="formData.u_password" >
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label> PhoneNumber</label>
+                        </div>
+                        <input type="phone" id="num" class="input_field" maxlength="10"  [(ngModel)]="formData.u_phno">
+                    </div>
+                    
+                    
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label> Email</label>
+                        </div> 
+                        <input type="email" id="mail" class="input_field"  [(ngModel)]="formData.u_email">
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label> Date Of Birth</label>
+                        </div>
+                        <input type="date" id="dob" class="input_field"  min="1980-01-01" max="2022-12-31"
+                        [(ngModel)]="formData.u_dob">
+                    </div>
+                   
+                </div>
+               <button class="btn" (click)="addUser()">Submit</button>
+            </div>
+           
+        </div>
+    </div>
+</section> 

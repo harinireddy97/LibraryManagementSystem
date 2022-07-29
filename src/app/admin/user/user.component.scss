@@ -1,0 +1,67 @@
+.user_details {
+    padding:9%;
+
+    .block {
+        max-width: 400px;
+        margin-bottom: 10px;
+        box-shadow: 0 1px 5px 0px rgb(0 0 0 / 20%);
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .details {
+        p{
+            font-size: 14px;
+            color:black;
+        }
+        span {
+
+            font-family: Montserrat;
+            font-size: 15px;
+            color: #555555;
+            line-height: 1.2;
+        }
+    }
+
+    .user_block {
+        text-align: center;
+
+
+        img {
+
+            max-width: 131px;
+            border-radius: 50%;
+        }
+
+        h4 {
+            font-family: Montserrat;
+            font-size: 20px;
+            color: #555555;
+            line-height: 1.2;
+            margin: 10px;
+        }
+    }
+
+    #update {
+        margin: 6px;
+    }
+
+    .details {
+        display: grid;
+    }
+
+    h2 {
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 39px;
+        color: #555555;
+        line-height: 1.2;
+        padding: 20px;
+        font-weight: 400;
+    }
+}
+.button{
+    float: right;
+    margin: 30px;
+   }

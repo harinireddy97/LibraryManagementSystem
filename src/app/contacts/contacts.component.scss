@@ -1,0 +1,57 @@
+.contact {
+    
+    text-decoration: solid;
+    h2{
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 39px;
+        color: #555555;
+        line-height: 1.2;
+        padding: 20px;
+        font-weight: 400;
+     }
+    .social_links {
+        font-size: 18px;
+        display: inline-block;
+        background: #fff;
+        color: #3498db;
+        line-height: 1;
+        padding: 8px 0;
+        margin-right: 5px;
+        border-radius: 50%;
+        text-align: center;
+        width: 36px;
+        /* height: 36px;  */
+        border: 1px solid #3498db;
+    }
+
+    .contact_details {
+        text-align: end;
+        display: flex;
+
+        i {
+            font-size: 25px;
+            color: #3498db;
+            padding-right: 3.5px;
+        }
+
+        p {
+            font-family: "Open Sans", sans-serif;
+            color: #444444;
+            font-size: 14px;
+            line-height: 28px;
+
+        }
+    }
+
+    .contact_details1 {
+        p {
+            color: #888;
+            font-size: 14px;
+            line-height: 24px;
+            font-family: "Raleway", sans-serif;
+            text-align: left;
+        }
+    }
+  
+}

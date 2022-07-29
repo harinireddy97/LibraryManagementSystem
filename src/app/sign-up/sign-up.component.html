@@ -1,0 +1,60 @@
+
+ <section class="loginform">
+    <div class="container">
+        <div class="signup" id="signup" >
+            <h2>
+                Sign In With
+            </h2>
+            <div class="links">
+                <span class="icon_button"><i class="fab fa-facebook-square"></i>Facebook</span>
+                <span class="img_button"><i class="fab fa-google"></i>Google</span>
+            </div>
+            <div class="block">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label> UserName</label>
+                        </div>
+                        <input type="text"  class="input_field"   onkeydown="return /[a-z]/i.test(event.key)" >
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label> Email</label>
+                        </div>
+                        <input type="email" id="mail" class="input_field">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label> PhoneNumber</label>
+                        </div>
+                        <input type="phone" id="num" class="input_field" maxlength="10" >
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label>Password <span class="text"><a href="#">Forgot?</a></span></label>
+                        </div>
+                        <input type="password" id="pass" class="input_field" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label> Date Of Birth</label>
+                        </div>
+                        <input type="date" id="dob" class="input_field"  min="1980-01-01" max="2022-12-31">
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div>
+                            <label>Address</label>
+                        </div>
+                        <textarea name="address" id="address" cols="30" rows="5" ></textarea>
+                    </div>
+                </div>
+               <button class="btn" >Sign In</button>
+            </div>
+           
+        </div>
+    </div>
+</section> 

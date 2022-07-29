@@ -1,0 +1,58 @@
+
+<div class="header">
+    <app-header></app-header>
+</div>
+<div class="sidenav">
+    <app-side-nav></app-side-nav>
+</div>
+<section class="returns">
+    <div class="container">
+        <h2>Returns</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col" *ngFor= "let column of headers">
+                    {{column}}
+                  </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let row of rows">
+                    <td>
+                      {{row.sno}}
+                    </td>
+                    <td>
+                        {{row.username}}
+                      </td>
+                    <td>
+                      {{row.bookId}}
+                    </td>
+                    <td>
+                      {{row.returndate}}
+                    </td>
+                    <td><i class="fas fa-check-circle text-success"  data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- approve -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Approve</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Are You Sure You Want To <b> Approve The Book</b>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-danger">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</section>

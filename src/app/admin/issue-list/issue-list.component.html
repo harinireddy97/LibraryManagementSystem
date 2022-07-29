@@ -1,0 +1,40 @@
+
+<div class="header">
+    <app-header></app-header>
+</div>
+<div class="sidenav">
+    <app-side-nav></app-side-nav>
+</div>
+<section class="book">
+    <div class="container">
+        <h2>Books Issued List</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col" *ngFor= "let column of headers">
+                    {{column}}
+                  </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let row of rows">
+                    <td>
+                      {{row.sno}}
+                    </td>
+                    <td>
+                        {{row.username}}
+                      </td>
+                    <td>
+                      {{row.bookId}}
+                    </td>
+                    <td>
+                      {{row.returndate}}
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  
+
+</section>

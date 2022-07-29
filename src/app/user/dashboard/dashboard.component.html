@@ -1,0 +1,117 @@
+<div class="header">
+    <app-header></app-header>
+</div>
+<div class="sidenav">
+    <app-side-nav></app-side-nav>
+</div>
+<section class="search">
+    <div class="col-md-9 col-md-push-1 ">
+        <h3 class="text-center"></h3>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-group">
+                        <div class="input-group-btn search-panel ">
+                            <select class="dropdown-toggle  select" data-toggle="dropdown">
+                                <option>Categories</option>
+                                <option>Science</option>
+                                <option>History</option>
+                                <option>Kids</option>
+                                <option>Romantic</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <input type="hidden" name="search_param" value="all" id="search_param">
+                    <input type="text" class="form-control rounded" name="x" placeholder="Search term...">
+                </div>
+
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-primary"><i class="fas fa-search"></i> Filter</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="books">
+    <div class="container">
+        <h2><b>New Collections</b></h2>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let book of books">
+                <div class="block" (click)="openXl(content)">
+                    <div class="book_img">
+                        <img src="{{book.image}}">
+                    </div>
+                    <div class="book_info">
+                        <h4>
+                            {{book.name}}
+                        </h4>
+                    </div>
+
+                    <div class="arrow">
+                        <!-- <ng-template #content let-c="close" let-d="dismiss" [hidden]="hideInput">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Addtional Information!</h4>
+                                <button type="button" class="btn-close" aria-label="Close"
+                                    (click)="d('Cross click')"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="book_img">
+                                    <img src="{{book.image}}">
+                                </div>
+                                <div class="book_info">
+                                    <h4>
+                                        {{book.name}}
+                                    </h4>
+                                    <p>{{book.description}}</p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-dark" (click)="c('Save click')"
+                                    routerLink="/user/myBooks">Save</button>
+                            </div>
+                        </ng-template> -->
+                        <ng-template #content let-modal>
+                            <div class="modal-header">
+                              <h4 class="modal-title">Additional Information</h4>
+                              <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="book_img">
+                                                <img src="{{book.image}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="book_info">
+                                                <h4>
+                                                    {{book.name}}
+                                                </h4>
+                                                <h4>
+                                                    <b>By:</b><i> {{book.authorName}}</i>
+                                                </h4>
+                                                <p>{{book.description}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+                              <button type="button" class="btn btn-success" (click)="modal.close('Close click')" routerLink="/user/myBooks">Save</button>
+                            </div>
+                          </ng-template>
+                        <!-- <a class="text-primary" (click)="open(content)"> <i
+                                class="fas fa-angle-double-right"></i></a> -->
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

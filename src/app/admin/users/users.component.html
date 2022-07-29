@@ -1,0 +1,30 @@
+
+<div class="header">
+    <app-header></app-header>
+</div>
+<div class="sidenav">
+    <app-side-nav></app-side-nav>
+</div>
+<button type="button" class="btn btn-md btn-outline-primary button" routerLink="/admin/newUser">Add User Here</button>
+<section class="user_details">
+   <div class="container">
+    <h2>
+        Users
+    </h2>
+    <div class="row">
+        <div class="col-lg-4" *ngFor="let user of users">
+            <div class="card" >
+                <div class="user_block">
+                    <img src="../assets/profile.png">
+                    <h4>
+                        {{user.u_name}}
+                    </h4>
+                </div>
+                <div class="button1">
+                    <button class="btn btn-info btn-sm px-5 " (click)="userButtonClicked(user)">view</button>
+                </div> 
+            </div>
+        </div>
+    </div>
+   </div>
+</section>

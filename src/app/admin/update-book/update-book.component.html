@@ -1,0 +1,72 @@
+<div class="header">
+    <app-header></app-header>
+</div>
+<div class="sidenav">
+    <app-side-nav></app-side-nav>
+</div>
+
+<section class="loginform">
+    <div class="container">
+        <div class="signup" id="signup">
+            <h2>
+                Book Updation
+            </h2>
+            <!-- <div class="links">
+                <span class="icon_button"><i class="fab fa-facebook-square"></i>Facebook</span>
+                <span class="img_button"><i class="fab fa-google"></i>Google</span>
+            </div> -->
+            <div class="block">
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div>
+                            <label> CoverImage</label>
+                        </div>
+                        <input type="file" id="myFile" name="filename">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div>
+                            <label> Categorie</label>
+                        </div>
+                        <input type="text" class="input_field" onkeydown="return /[a-z]/i.test(event.key)">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div>
+                            <label> BookName</label>
+                        </div>
+                        <input type="text" class="input_field" onkeydown="return /[a-z]/i.test(event.key)">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div>
+                            <label> AuthorName</label>
+                        </div>
+                        <input type="text" class="input_field" onkeydown="return /[a-z]/i.test(event.key)">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div>
+                            <label>Description</label>
+                        </div>
+                        <textarea name="Description" id="des" cols="30" rows="5"></textarea>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-lg-12 ">
+                        <div>
+                            <label> NumberOfCopies</label>
+                        </div>
+                        <input type="number" class="input_field">
+                    </div>
+                </div> -->
+                <button class="btn">Update</button>
+            </div>
+
+        </div>
+    </div>
+</section>

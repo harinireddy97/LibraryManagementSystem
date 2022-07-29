@@ -1,0 +1,61 @@
+.books {
+    padding: 4% 0;
+    background: lightgray;
+
+    .block {
+        margin-bottom: 25px;
+        text-align: center;
+        border-radius: 8px;
+        cursor: pointer;
+       // background:#3498db;
+       background: white;
+        box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+       
+        
+    }
+    .book_info {
+        padding: 25px 15px;
+    
+
+    h4 {
+        font-weight:200;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 18px;
+        font-family: "Raleway", sans-serif;
+        margin-bottom: 5px;
+    }
+}
+    .arrow{
+        font-size: 20px;
+    }
+}
+.search{
+    padding: 2% 0;
+    background: #f3f9fd;
+    margin-bottom: 17px;
+    box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+    .select{
+        margin-left: 25px;
+        color: #3498db;
+        padding: 7px;
+        border-radius: 10px;
+        width: 100%;
+        
+        
+    }
+    
+}
+
+.book_img{
+    img{
+        //max-width: 90%;
+        border-radius: 8px;
+        margin: 10px;
+        max-height: 400px;
+        box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+    }
+}
+.book_info {
+    padding: 20%;
+}

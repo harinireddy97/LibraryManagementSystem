@@ -1,0 +1,37 @@
+.button{
+    float: right;
+    margin: 30px;
+   }
+   .user_details {
+    padding: 30px;
+    .card {
+        max-width: 400px;
+        margin: 0 auto;
+        box-shadow: 0 1px 5px 0px rgb(0 0 0 / 20%);
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+
+    .user_block {
+        text-align: center;
+        h4 {
+            font-family: Montserrat;
+            font-size: 20px;
+            color: #555555;
+            line-height: 1.2;
+            margin: 10px;
+        }
+        img {
+
+            max-width: 131px;
+            border-radius: 50%;
+        }
+    }
+.button1{
+    margin-left:30%;
+}
+
+}

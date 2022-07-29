@@ -1,0 +1,69 @@
+<!-- <button class="btn float-end btn1 position-absolute top-0 start-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+    <i class="fas fa-bars" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></i>
+</button>
+<div class="offcanvas offcanvas-start w-25 p-3" id="menu" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
+    <div class="offcanvas-header p-3">
+        <h4 class="offcanvas-title d-none d-sm-block" id="offcanvas"></h4>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-0 ">
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+            <li >
+                <a  data-bs-toggle="collapse" class="nav-link text-truncate">
+                    <i class="fas fa-tachometer-alt text-dark"></i><span class="ms-1 d-none d-sm-inline" routerLink="/user">Dashboard</span> </a>
+            </li>
+            <li>
+                <a  data-bs-toggle="collapse" class="nav-link text-truncate">
+                    <i class="fas fa-layer-group text-success"></i><span class="ms-1 d-none d-sm-inline" routerLink="/user/myBooks" >My Collections</span> </a>
+            </li>
+            <li>
+                <a  data-bs-toggle="collapse" class="nav-link text-truncate">
+                  <span class="ms-1 d-none d-sm-inline" routerLink="/user/science">category</span> </a>
+            </li>
+            <li >
+                 <a  data-bs-toggle="collapse" class="nav-link text-truncate"><i class="fas fa-undo text-danger"></i>
+                   <span class="ms-1 d-none d-sm-inline" routerLink="/user/return">ReturnBook</span> </a>
+            </li>
+            
+
+        </ul>
+    </div>
+</div> -->
+<button class="btn float-end btn1 position-absolute top-0 start-0" role="button">
+    <i class="fas fa-bars" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" ></i>
+</button>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="offcanvas-body px-0 ">
+            <div class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+
+                <h6>
+                    <a  data-bs-toggle="collapse" class="nav-link text-truncate" data-bs-dismiss="offcanvas" (click)="sidebarNavigate('/user')">
+                        <i class="fas fa-tachometer-alt text-dark"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                </h6>
+                <h6>
+                    <a  data-bs-toggle="collapse" class="nav-link text-truncate" data-bs-dismiss="offcanvas" (click)="sidebarNavigate('/user/myBooks')">
+                        <i class="fas fa-layer-group text-success"></i><span class="ms-1 d-none d-sm-inline"  >My Collections</span> </a>
+                </h6>
+                <h6>
+                    <a  data-bs-toggle="collapse" class="nav-link text-truncate" data-bs-dismiss="offcanvas" (click)="sidebarNavigate('/user/science')">
+                      <span class="ms-1 d-none d-sm-inline" routerLink="/user/science">category</span> </a>
+                </h6>
+                <h6 >
+                     <a  data-bs-toggle="collapse" class="nav-link text-truncate" data-bs-dismiss="offcanvas" (click)="sidebarNavigate('/user/userReturns')">
+                        <i class="fas fa-undo text-danger"></i>
+                       <span class="ms-1 d-none d-sm-inline">ReturnBook</span> </a>
+                </h6>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

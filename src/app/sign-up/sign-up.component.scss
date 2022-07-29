@@ -1,0 +1,115 @@
+.loginform {
+
+   padding: 7% 0;
+   // background-image: url('	https://colorlib.com/etc/lf/Login_v5/images/bg-01.jpg');
+   background-size: cover;
+   border: 1px;
+
+   .signup {
+      background: bisque;
+      border-radius: 10px;
+      max-width: 660px;
+      margin: 0 auto;
+   }
+
+   .links {
+      display: block;
+      justify-content: space-between;
+      text-decoration: none;
+      text-align: center;
+      margin-bottom: 20px;
+   }
+
+   .icon_button {
+
+      font-family: Montserrat;
+      font-size: 18px;
+      line-height: 1.2;
+      color: #fff;
+      box-shadow: 0 1px 5px 0px rgb(0 0 0 / 20%);
+      background-color: #3b5998;
+      padding: 10px;
+      border-radius: 10px;
+
+      i {
+         font-size: 20px;
+         margin-right: 17px;
+         padding-bottom: 3px;
+      }
+   }
+
+   .img_button {
+      margin-left: 15px;
+      font-family: Montserrat;
+      font-size: 18px;
+      line-height: 1.2;
+      padding: 10px;
+      box-shadow: 0 1px 5px 0px rgb(0 0 0 / 20%);
+      border-radius: 10px;
+      background: white;
+
+      i {
+         margin-right: 15px;
+         padding-bottom: 3px;
+         font-size: 20px;
+         color: red;
+      }
+   }
+
+   .block {
+      padding: 0 20px;
+   }
+
+   label {
+      padding: 8px;
+      font-size: 16px;
+      font-family: Montserrat;
+      color: #555555;
+      line-height: 1.5;
+   }
+
+   .input_field {
+      padding: 5px;
+      border-radius: 10px;
+      background-color: #f7f7f7;
+      border: 1px solid #e6e6e6;
+      width: 100%;
+   }
+
+   #address {
+      border-radius: 10px;
+      background-color: #f7f7f7;
+      border: 1px solid #e6e6e6;
+      resize: none;
+      width: 100%;
+   }
+
+   .btn {
+      padding: 0 25%;
+      margin-left: 20%;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      height: 45px;
+      background-color: #555555;
+      border-radius: 10px;
+      font-family: Poppins;
+      font-size: 16px;
+      color: #fff;
+      line-height: 1.2;
+      display: hidden;
+   }
+
+   .btn:hover {
+      display: block;
+      background-color: #3498db;
+      color: white;
+   }
+
+   .text {
+      font-family: Poppins;
+      font-size: 14px;
+      color: #999999;
+      line-height: 1.5;
+   }
+
+}

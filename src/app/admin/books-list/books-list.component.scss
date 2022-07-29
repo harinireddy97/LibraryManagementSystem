@@ -1,0 +1,117 @@
+.books {
+
+    margin-top: 30px;
+
+    .block {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+
+        img {
+            border-radius: 8px;
+            margin: 10px;
+            max-height: 400px;
+            box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+        }
+    }
+
+
+
+    h4 {
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 18px;
+        font-family: "Raleway", sans-serif;
+        margin: 10px;
+        font-size: 18px;
+    }
+
+    .book_info {
+        padding: 25px 15px;
+
+        span {
+            font-size: 13px;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #aaaaaa;
+            font-family: "Open Sans", sans-serif;
+        }
+
+
+    }
+}
+
+.button {
+    float: right;
+    margin: 30px;
+}
+
+.signup {
+    background: white;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+
+    h2 {
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 39px;
+        color: #555555;
+        line-height: 1.2;
+        padding: 20px;
+        font-weight: 400;
+    }
+}
+
+.block1 {
+    padding: 0 20px;
+
+    label {
+        padding: 8px;
+        font-size: 16px;
+        font-family: Montserrat;
+        color: #555555;
+        line-height: 1.5;
+    }
+
+    .input_field {
+        padding: 5px;
+        border-radius: 10px;
+        background-color: #f7f7f7;
+        border: 1px solid #e6e6e6;
+        width: 100%;
+    }
+
+    #des {
+        border-radius: 10px;
+        background-color: #f7f7f7;
+        border: 1px solid #e6e6e6;
+        resize: none;
+        width: 100%;
+    }
+
+    .submit {
+        padding: 0 25%;
+        margin-left: 20%;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        height: 45px;
+        background-color: #3498db;
+        border-radius: 10px;
+        font-family: Poppins;
+        font-size: 16px;
+        color: #fff;
+        line-height: 1.2;
+
+    }
+
+
+}
+
+#update {
+    margin: 10px;
+
+}

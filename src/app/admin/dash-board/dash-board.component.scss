@@ -1,0 +1,18 @@
+.dashboard{
+    // background-image: url('https://images.unsplash.com/photo-1597132687570-0e3d020119e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGlicmFyeSUyMHRyYW5zcGVyYW50JTIwaW1nfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+    // background-size: cover;
+    .block{
+        text-align: center;
+        background: #f3f9fd;
+        box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+        padding-bottom: 10px;
+        i{
+            font-size: 40px;
+            margin-top: 15px;
+            color:#3498db;;
+        }
+    }
+    .img{
+        margin: 11%;
+    }
+}

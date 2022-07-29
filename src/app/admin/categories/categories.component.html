@@ -1,0 +1,82 @@
+<div class="header">
+  <app-header></app-header>
+</div>
+<div class="sidenav">
+  <app-side-nav></app-side-nav>
+</div>
+
+<section class="booksCat">
+  <button type="button" class="btn btn-md btn-outline-primary button" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample1" aria-controls="offcanvasExample1">Add Categories</button>
+  <div class="container">
+    <h2>Categories</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" *ngFor= "let column of headers">
+            {{column}}
+          </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let row of rows">
+          <td>
+            {{row.sno}}
+          </td>
+          <td>
+            {{row.category}}
+          </td>
+          <td>
+            {{row.shtname}}
+          </td>
+          <td><i class="fas fa-angle-double-right text-success" routerLink="/admin/science"></i></td>
+          <td><i class="fas fa-edit text-success" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample1"
+              aria-controls="offcanvasExample1"></i> / <i class="fas fa-trash text-danger" data-bs-toggle="modal"
+              data-bs-target="#exampleModal"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- forUpdate -->
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample1" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Update</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        <label> CategoryName</label>
+      </div>
+      <input type="text" class="input_field" [(ngModel)]="category.name">
+      <div>
+        <label>ShortName</label>
+      </div>
+      <input type="text" class="input_field" [(ngModel)]="category.shname">
+    </div>
+    <div class="modal-footer">
+
+      <button type="button" class="btn btn-outline-dark" (click)="book()">Submit</button>
+    </div>
+  </div>
+  <!-- for delete -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are You Sure You Want TO <b> Delete</b>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-danger">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,88 @@
+<div class="header">
+  <app-header></app-header>
+</div>
+<div class="sidenav">
+  <app-side-nav></app-side-nav>
+</div>
+<button type="button" class="btn btn-md btn-outline-primary button" data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasExample1" aria-controls="offcanvasExample1">Add Book Copy</button>
+<section class="bookCopies">
+
+  <div class="container">
+    <h2>Book Copies</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <!-- <th scope="col">Sno</th>
+          <th scope="col">Book Name</th>
+          <th scope="col">Book ISBN</th>
+
+          <th scope="col"></th> -->
+          <th scope="col" *ngFor= "let column of headers">
+            {{column}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let row of rows">
+          <td>
+            {{row.sno}}
+          </td>
+          <td>
+            {{row.bookname}}
+          </td>
+          <td>
+            {{row.count}}
+          </td>
+          <td><i class="fas fa-edit text-success" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample1"
+            aria-controls="offcanvasExample1"></i> / <i class="fas fa-trash text-danger" data-bs-toggle="modal"
+            data-bs-target="#exampleModal"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- bookcopy -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample1" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Book</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        <label> Book Name</label>
+      </div>
+      <select name="books" id="books" class="input_field" [(ngModel)]="copies.name">
+        <option>science</option>
+        <option>history</option>
+        <option>math 12th</option>
+        <option>kids story</option>
+      </select>
+      <div>
+        <label>Book Count</label>
+      </div>
+      <input type="number" class="input_field" [(ngModel)]="copies.number">
+    </div>
+    <div class="submit">
+
+      <button type="button" class="btn btn-md btn-outline-primary" (click)="bookCopies()">Submit</button>
+    </div>
+  </div>
+  <!-- delete -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are You Sure You Want TO <b> Delete</b>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-danger">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

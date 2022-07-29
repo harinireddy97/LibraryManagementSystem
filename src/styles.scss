@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+.navbar {
+    ul {
+        display: flex;
+        list-style: none;
+        align-items: center;
+    }
+
+    li {
+        align-items: center;
+        font-family: "Open Sans", sans-serif ;
+        justify-content: space-between;
+        padding: 10px 0 10px 30px;
+        font-size: 15px;
+        font-weight: 400;
+        color:white;
+        white-space: nowrap;
+        transition: 0.3s;
+        display: hidden;
+    }
+}
+.navbar{
+
+    li:hover{
+        color: #3498db;
+        display: block;
+    }
+}
+
+h2{
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 39px;
+    color: #555555;
+    line-height: 1.2;
+    padding: 20px;
+    font-weight: 400;
+ }
+.header{
+    margin-bottom: 20px;
+}
+p {
+    font-size: 13px;
+    font-weight: 400;
+    color: #aaaaaa;
+    font-family: "Open Sans", sans-serif;
+    margin-top: 10px;
+}
+.block {
+    padding: 0 20px;
+ }
+
+ label {
+    padding: 8px;
+    font-size: 16px;
+    font-family: Montserrat;
+    color: #555555;
+    line-height: 1.5;
+ }
+
+ .input_field {
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #e6e6e6;
+    width: 100%;
+ }
+html, body { min-height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

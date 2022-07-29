@@ -1,0 +1,29 @@
+.news {
+    //padding: 8% 0;
+    border-radius: 8px;
+    background: #f3f9fd;
+    margin: 20px 0;
+    .count_p {
+        margin-left: 50px;
+    }
+    h2{
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 39px;
+        color: #555555;
+        line-height: 1.2;
+        padding: 20px;
+        font-weight: 400;
+     }
+    .count_box {
+        padding-bottom: 25px;
+    
+        i {
+            color: #3498db;
+            margin-right: 6px;
+            font-size: 36px;
+            float: left;
+        }
+    }
+}
+

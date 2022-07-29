@@ -1,0 +1,63 @@
+.loginform {
+
+    padding: 7% 0;
+    // background-image: url('	https://colorlib.com/etc/lf/Login_v5/images/bg-01.jpg');
+    //background-size: cover;
+    background: #f3f9fd;
+    border: 1px;
+ 
+    .signup {
+       background:white;
+       border-radius: 10px;
+       max-width: 462px;
+       margin: 0 auto;
+    }
+    h2 {
+       text-align: center;
+       font-family: Montserrat;
+       font-size: 39px;
+       color: #555555;
+       line-height: 1.2;
+       padding: 20px;
+       font-weight: 400;
+   }
+ 
+    .block {
+       padding: 0 20px;
+    }
+ 
+    label {
+       padding: 8px;
+       font-size: 16px;
+       font-family: Montserrat;
+       color: #555555;
+       line-height: 1.5;
+    }
+ 
+    .input_field {
+       padding: 5px;
+       border-radius: 10px;
+       background-color: #f7f7f7;
+       border: 1px solid #e6e6e6;
+       width: 100%;
+    }
+ 
+    .btn {
+       padding: 0 25%;
+       margin-left: 20%;
+       margin-bottom: 20px;
+       margin-top: 20px;
+       height: 45px;
+       background-color:  #3498db;
+       border-radius: 10px;
+       font-family: Poppins;
+       font-size: 16px;
+       color: #fff;
+       line-height: 1.2;
+    
+    }
+ 
+ 
+    
+ 
+ }

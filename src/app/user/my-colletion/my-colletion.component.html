@@ -1,0 +1,54 @@
+<div class="header">
+  <app-header></app-header>
+</div>
+<div class="sidenav">
+  <app-side-nav></app-side-nav>
+</div>
+
+<section class="myBooks">
+  <div class="container">
+    <h2>My Collections</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" *ngFor="let column of headers">
+            {{column}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <td>
+            {{row.sno}}
+          </td>
+          <td>
+            {{row.bookname}}
+          </td>
+          <td>
+            {{row.bookId}}
+          </td>
+          <td><i class="fas fa-angle-double-right text-success" data-bs-toggle="modal"
+              data-bs-target="#exampleModal"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- request -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Request</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        You Want To Take This <b>Book</b>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-danger">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
