@@ -9,27 +9,34 @@
 <section class="user_details">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-12" *ngFor="let user of details">
+      <div class="col-lg-4 col-12" *ngFor="let user of details" >
         <div class="block">
-          <div class="user_block">
+          <div class="user_block" *ngIf="user?.u_status == 1">
             <img src="../assets/profile.png">
-            <h4 id="name">{{user.u_name}}</h4>{{user.u_status}}
+            <h4 id="name">{{user.u_name}}</h4>
           </div>
+          <h4 *ngIf="user?.u_status == 0" style="background-color: red;" class="user_block">
+             <img src="../assets/profile.png">
+          </h4>
           <div class="details" id="datails">
             <p>
-              <b>Email:</b> <span>{{user.u_email}}</span>
+              <b>User Name: </b>&nbsp; <span>{{user.u_username}}</span>
             </p>
             <p>
-              <b>Phone Number: </b><span>{{user.u_phno}}</span>
+              <b>Email: </b> &nbsp;<span>{{user.u_email}}</span>
+            </p>
             <p>
-              <b>Date Of Birth:</b> <span>{{user.u_dob}}</span>
+              <b>Phone Number: </b>&nbsp;<span>{{user.u_phno}}</span>
+            <p>
+              <b>Date Of Birth: </b>&nbsp; <span>{{user.u_dob}}</span>
             </p>
 
           </div>
           <div class="mt-4">
-            <button class="btn btn-info btn-sm px-5 " id="update" routerLink="/admin/newUser">Update</button>
+            <button class="btn btn-info btn-sm px-5 " id="update" data-bs-toggle="modal"
+            data-bs-target="#exampleModal1" (click)="action(user)">Update</button>
             <button class="btn btn-danger btn-sm px-5 " id="delete" data-bs-toggle="modal"
-              data-bs-target="#exampleModal">Delete</button>
+              data-bs-target="#exampleModal" (click)="action(user)">Delete</button>
           </div>
         </div>
         <!-- delete -->
@@ -42,11 +49,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                Are You Sure You Want TO <b> Delete</b>
+                Are You Sure You Want TO <b> Delete</b> &nbsp;<span class="text-danger">{{name}}</span>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <button type="button" class="btn btn-danger" (click)="delete(user.u_id)">Yes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >No</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="delete(user)">Yes</button>
               </div>
             </div>
           </div>
@@ -54,5 +61,39 @@
       </div>
     </div>
   </div>
+  <!-- update -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" >Update</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="updateForm">
+            <div>
+              <label>Old User Name</label>
+            </div>
+            <input type="text" id="name" class="input_field form-control" formControlName="oldUserName" [(ngModel)]="oldUserName"> 
+    
+            <div>
+              <label> New User Name</label>
+            </div>
+            <input type="email" class="input_field form-control" formControlName="newUserName">
+            <div *ngIf="updateForm.get('newUserName').touched && updateForm.get('newUserName').invalid"
+              class="alert alert-danger">
+              <div *ngIf="updateForm.get('newUserName').errors.required">Name is required.</div>
+              <div *ngIf="updateForm.get('newUserName').errors.pattern">Please, Enter chacters with @.</div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="update()">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
 
 </section>

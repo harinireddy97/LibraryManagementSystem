@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { ApiService } from '../service/apiService/api.service';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, Validators,FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,25 +11,33 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  
 
   constructor(private apiservice: ApiService ,
     private router :Router, private authservice:AuthService,
-    private http : HttpClient) {
-   
-   }
-  login: any = {
-   
-    username: 'harini@123',
-    password:'harini111'
-  }
+     private formbuilder:FormBuilder) { }
  
+
  
   ngOnInit(): void {
+    this.loginForm = this.formbuilder.group({
+      username :['harini@123',[Validators.required]],
+      password:['harini111',Validators.required]
+    })
    this.user
     
   }
-  user() {  
-    this.apiservice.add('http://192.168.0.156/boilerplate/api/web/v1/libmag/loginmethod', this.login)
+  user(logindata) { 
+    console.log(this.loginForm)
+    if(this.loginForm.valid){
+      console.log(this.loginForm.value)
+     
+  //  let  login= {
+  //     username:this.loginForm.value.username,
+  //     password:this.loginForm.value.password
+  //   }
+    this.apiservice.add('http://192.168.1.123/boilerplate/api/web/v1/libmag/loginmethod', logindata)
       .subscribe((res: any) => {
         console.log(res)
      
@@ -36,6 +45,8 @@ export class LoginComponent implements OnInit {
      localStorage.setItem("access_token", res.data.data.token)
      localStorage.setItem("role",res.data.data.role_id)
      localStorage.setItem("Name",res.data.data.name)
+     localStorage.setItem('user_id',res.data.data.user_id)
+
      
 
     
@@ -56,9 +67,8 @@ export class LoginComponent implements OnInit {
   
       });
      
-      localStorage.setItem('login',this.login)
-      
-
+       
+    }
     
 
   }

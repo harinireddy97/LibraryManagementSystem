@@ -3,7 +3,7 @@
 
     .block {
         max-width: 400px;
-        margin-bottom: 10px;
+        margin-bottom: 25px;
         box-shadow: 0 1px 5px 0px rgb(0 0 0 / 20%);
         background-color: white;
         border-radius: 10px;
@@ -12,13 +12,13 @@
 
     .details {
         p{
-            font-size: 14px;
+            font-size: 16px;
             color:black;
         }
         span {
 
             font-family: Montserrat;
-            font-size: 15px;
+            font-size: 18px;
             color: #555555;
             line-height: 1.2;
         }
@@ -60,6 +60,7 @@
         padding: 20px;
         font-weight: 400;
     }
+   
 }
 .button{
     float: right;

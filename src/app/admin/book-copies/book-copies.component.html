@@ -8,6 +8,7 @@
   data-bs-target="#offcanvasExample1" aria-controls="offcanvasExample1">Add Book Copy</button>
 <section class="bookCopies">
 
+
   <div class="container">
     <h2>Book Copies</h2>
     <table class="table table-striped">
@@ -18,25 +19,27 @@
           <th scope="col">Book ISBN</th>
 
           <th scope="col"></th> -->
-          <th scope="col" *ngFor= "let column of headers">
+          <th scope="col" *ngFor="let column of headers">
             {{column}}
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let row of rows">
+        <tr *ngFor="let row of books, let i=index">
           <td>
-            {{row.sno}}
+            {{i+1}}
           </td>
           <td>
-            {{row.bookname}}
+            {{row.b_title}}
           </td>
           <td>
-            {{row.count}}
+            {{row.b_count}}
           </td>
+          <td><i class="fas fa-angle-double-right text-success" (click)="openXl(content)"></i></td>
           <td><i class="fas fa-edit text-success" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample1"
-            aria-controls="offcanvasExample1"></i> / <i class="fas fa-trash text-danger" data-bs-toggle="modal"
-            data-bs-target="#exampleModal"></i></td>
+              aria-controls="offcanvasExample1" (click)="action(row)"></i> 
+
+              
         </tr>
       </tbody>
     </table>
@@ -48,41 +51,86 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <div>
-        <label> Book Name</label>
-      </div>
-      <select name="books" id="books" class="input_field" [(ngModel)]="copies.name">
-        <option>science</option>
-        <option>history</option>
-        <option>math 12th</option>
-        <option>kids story</option>
-      </select>
-      <div>
-        <label>Book Count</label>
-      </div>
-      <input type="number" class="input_field" [(ngModel)]="copies.number">
+      <form [formGroup]="bookCopie">
+        <div>
+          <label> Book Name</label>
+        </div>
+        <select name="books" id="books" class="input_field form-control" formControlName="b_title">
+          <option>select Book</option>
+          <option *ngFor="let book of books">{{book.b_title}}</option>
+          <div *ngIf="bookCopie.get('b_title').touched && bookCopie.get('b_title').invalid" class="alert alert-danger">
+            <div *ngIf="bookCopie.get('b_title').errors.required"> Select The Book</div>
+          </div>
+        </select>
+        <div>
+          <label>Book Count</label>
+        </div>
+        <input type="number" class="input_field form-control" formControlName="newcopy_added">
+        <div *ngIf="bookCopie.get('newcopy_added').touched && bookCopie.get('newcopy_added').invalid"
+          class="alert alert-danger">
+          <div *ngIf="bookCopie.get('newcopy_added').errors.required"> Book Count is required.</div>
+          <div *ngIf="bookCopie.get('newcopy_added').errors.pattern">Please, Enter Number.</div>
+        </div>
+      </form>
     </div>
-    <div class="submit">
+    <div>
+      <!-- <button type="button" class="btn btn-md btn-primary" style="float: right; margin:20px;">Submit</button> -->
 
-      <button type="button" class="btn btn-md btn-outline-primary" (click)="bookCopies()">Submit</button>
+      <button type="button" class="btn btn-md btn-primary" (click)="updateCopies(bookCopie.value)"
+        style="float: right; margin:20px;" data-bs-dismiss="modal" data-bs-toggle="offcanvas">Submit</button>
     </div>
   </div>
+  
+  <!-- displayCopies -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">{{bookName}}</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" *ngFor="let columns of header">
+              {{columns}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let id of copy">
+            <td>
+              {{id?.c_id}}
+            </td>
+            <td>
+               <i class="fas fa-trash text-danger"
+               (click)="open1(content,book.b_id)" (click)="modal.close('Close click')"></i>
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
   <!-- delete -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are You Sure You Want TO <b> Delete</b>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-          <button type="button" class="btn btn-danger">Yes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<ng-template #content let-c="close" let-d="dismiss1">
+ <div class="modal-header">
+     <h4 class="modal-title" id="modal-basic-title">Delete</h4>
+     <button type="button" class="btn-close" aria-label="Close"
+         (click)="d('Cross click')"></button>
+ </div>
+ <div class="modal-body">
+     You Want delete the Copie &nbsp;<span class="text-primary"><i>{{book.b_title}}</i></span>
+ </div>
+ <div class="modal-footer">
+     <button type="button" class="btn btn-secondary"
+         (click)="c('Save click')">No</button>
+         <button type="button" class="btn btn-success"
+         (click)="bookIssue(book.b_id)">Yes</button>
+ </div>
+</ng-template>
+ 
+
+
+
+
 </section>

@@ -8,6 +8,21 @@
 <section class="returns">
     <div class="container">
         <h2>Returns</h2>
+        <div class="search p-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <input type="text" class="form-control rounded" name="x" placeholder="Search term..."
+                  [(ngModel)]="selectedUser">
+              </div>
+    
+              <div class="col-lg-6">
+                <button type="button" class="btn btn-primary" (click)="filter()"><i class="fas fa-search"></i>
+                  Filter</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -17,19 +32,30 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let row of rows">
-                    <td>
-                      {{row.sno}}
-                    </td>
-                    <td>
-                        {{row.username}}
-                      </td>
-                    <td>
-                      {{row.bookId}}
-                    </td>
-                    <td>
-                      {{row.returndate}}
-                    </td>
+              <tr *ngFor="let row of  issuedBookList,let i=index">
+                <td>
+                  {{i+1}}
+                </td>
+                <td>
+                  {{row.username}}
+                </td>
+                <td>
+                  {{row.book_id}}
+                </td>
+                <td>
+                  {{row.copy_id}}
+                </td>
+                <td>
+                  {{row.issued_date}}
+                </td>
+                <td>
+                  {{row.act_returneddate}}
+                </td>
+                <td>
+                  {{row.t_fine}}
+                </td>
+      
+              
                     <td><i class="fas fa-check-circle text-success"  data-bs-toggle="modal"
                         data-bs-target="#exampleModal"></i></td>
                 </tr>

@@ -15,6 +15,7 @@ import { BookRequestComponent } from './book-request/book-request.component';
 import { CategoryComponent } from './category/category.component';
 import { MyColletionComponent } from './my-colletion/my-colletion.component';
 import { ReturnsComponent } from './returns/returns.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +23,9 @@ import { ReturnsComponent } from './returns/returns.component';
   declarations: [UserPageComponent, HeaderComponent, SideNavComponent, DashboardComponent, BranchesComponent, ScienceComponent, HistoryComponent, KidsComponent, RomanticComponent, BookRequestComponent, CategoryComponent, MyColletionComponent, ReturnsComponent],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }

@@ -13,22 +13,19 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col" *ngFor= "let column of headers">
+          <th scope="col" *ngFor="let column of headers">
             {{column}}
           </th>
 
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let row of rows">
+        <tr *ngFor="let catagory of categoryList ,let i=index">
           <td>
-            {{row.sno}}
+            {{i+1}}
           </td>
           <td>
-            {{row.category}}
-          </td>
-          <td>
-            {{row.shtname}}
+            {{catagory.b_catagory}}
           </td>
           <td><i class="fas fa-angle-double-right text-success" routerLink="/admin/science"></i></td>
           <td><i class="fas fa-edit text-success" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample1"
@@ -46,18 +43,29 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <div>
-        <label> CategoryName</label>
-      </div>
-      <input type="text" class="input_field" [(ngModel)]="category.name">
-      <div>
-        <label>ShortName</label>
-      </div>
-      <input type="text" class="input_field" [(ngModel)]="category.shname">
+      <form [formGroup]="category">
+        <div>
+          <label> CategoryName</label>
+        </div>
+        <input type="text" class="input_field form-control" formControlName="catagoryName">
+        <div *ngIf="category.get('catagoryName').touched && category.get('catagoryName').invalid"
+              class="alert alert-danger">
+              <div *ngIf="category.get('catagoryName').errors.required">CategoryName is required.</div>
+              <div *ngIf="category.get('catagoryName').errors.pattern">Please, Enter Characters.</div>
+            </div>
+        <div>
+          <label>ShortName</label>
+        </div>
+        <input type="text" class="input_field form-control" formControlName="shortName">
+        <div *ngIf="category.get('shortName').touched && category.get('shortName').invalid"
+              class="alert alert-danger">
+              <div *ngIf="category.get('shortName').errors.required">catagory Short Name is required.</div>
+              <div *ngIf="category.get('shortName').errors.pattern">Please, Enter Characters.</div>
+            </div>
+      </form>
     </div>
     <div class="modal-footer">
-
-      <button type="button" class="btn btn-outline-dark" (click)="book()">Submit</button>
+      <button type="button" class="btn btn-outline-dark" >Submit</button>
     </div>
   </div>
   <!-- for delete -->

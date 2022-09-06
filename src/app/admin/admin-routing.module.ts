@@ -32,7 +32,8 @@ const routes: Routes = [
   },
   {
     path: 'admin-page',
-    component: AdminPageComponent},
+    component: AdminPageComponent
+  },
   {
     path: 'dashboard',
     component: DashBoardComponent
@@ -47,17 +48,14 @@ const routes: Routes = [
   },
  
   {
-    path:'newUser',
+    path:"newUser",
     component:NewUserComponent
   },
   {
     path:'userList',
     component:UserComponent
   },
-  {
-    path:'updateUser',
-    component:UpdateUserComponent
-  },
+ 
   {
     path:'updateBook',
     component:UpdateBookComponent

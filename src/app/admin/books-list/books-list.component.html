@@ -7,95 +7,114 @@
 <!-- update Book -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample1" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Book</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Book</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <div class="container">
             <div class="signup" id="signup">
                 <h2>
-                     Book
+                    Book
                 </h2>
-                <div class="block1">
-                    
-                    <div class="row">
-                        <div class="col-lg-12 ">
-                            <div>
-                                <label>Category</label>
+                <div class="modal-body"  *ngIf="book == 'add' || book == 'edit'">
+                    <form class="block1" [formGroup]="bookForm">
+                        <div class="row">
+                            <div class="col-lg-12 ">
+                                <div>
+                                    <label>Category</label>
+                                </div>
+                                <input type="text" class="input_field form-control" formControlName="catagory" [(ngModel)]="new_catagory">
+                                <div *ngIf="bookForm.get('catagory').touched && bookForm.get('catagory').invalid"
+                                    class="alert alert-danger">
+                                    <div *ngIf="bookForm.get('catagory').errors.required">catagory name is required.
+                                    </div>
+                                    <div *ngIf="bookForm.get('catagory').errors.pattern">Only Characters.</div>
+                                </div>
                             </div>
-                            <input type="text" class="input_field"  [(ngModel)]="newBook.b_catagory" >
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 ">
-                            <div>
-                                <label> BookName</label>
+                        <div class="row">
+                            <div class="col-lg-12 ">
+                                <div>
+                                    <label> BookName</label>
+                                </div>
+                                <input type="text" class="input_field form-control" formControlName="bookName" [(ngModel)]="new_title">
+                                <div *ngIf="bookForm.get('bookName').touched && bookForm.get('bookName').invalid"
+                                    class="alert alert-danger">
+                                    <div *ngIf="bookForm.get('bookName').errors.required">Book Name is required.
+                                    </div>
+                                    <div *ngIf="bookForm.get('bookName').errors.pattern">Only Characters.</div>
+                                </div>
                             </div>
-                            <input type="text" class="input_field"  [(ngModel)]="newBook.b_title" >
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 ">
-                            <div>
-                                <label> AuthorName</label>
+                        <div class="row">
+                            <div class="col-lg-12 ">
+                                <div>
+                                    <label> AuthorName</label>
+                                </div>
+                                <input type="text" class="input_field form-control" formControlName="author" [(ngModel)]="new_author">
+                                <div *ngIf="bookForm.get('author').touched && bookForm.get('author').invalid"
+                                    class="alert alert-danger">
+                                    <div *ngIf="bookForm.get('author').errors.required">Authour Name is required.
+                                    </div>
+                                    <div *ngIf="bookForm.get('author').errors.pattern">Only Characters.</div>
+                                </div>
                             </div>
-                            <input type="text" class="input_field"  [(ngModel)]="newBook.b_author">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 ">
-                            <div>
-                                <label> CoverImage</label>
+                        <div class="row">
+                            <div class="col-lg-12 ">
+                                <div>
+                                    <label> CoverImage</label>
+                                </div>
+                                <input type="file" id="myFile" name="filename">
                             </div>
-                            <input type="file" id="myFile" name="filename">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div>
-                                <label>Description</label>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div>
+                                    <label>Description</label>
+                                </div>
+                                <textarea name="Description" id="des" cols="30" rows="5" class="form-control"
+                                    formControlName="description"></textarea>
+                                <div *ngIf="bookForm.get('description').touched && bookForm.get('description').invalid"
+                                    class="alert alert-danger">
+                                    <div *ngIf="bookForm.get('description').errors.required">Description is required.
+                                    </div>
+                                    <div *ngIf="bookForm.get('description').errors.pattern">Only Characters.</div>
+                                </div>
                             </div>
-                            <textarea name="Description" id="des" cols="30" rows="5" [(ngModel)]="newBook.b_description"></textarea>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 ">
-                            <div>
-                                <label> Number Of Books</label>
+                        <div class="row">
+                            <div class="col-lg-12 ">
+                                <div>
+                                    <label> Number Of Books</label>
+                                </div>
+                                <input type="text" class="input_field form-control" formControlName="count">
+                                <div *ngIf="bookForm.get('count').touched && bookForm.get('count').invalid"
+                                    class="alert alert-danger">
+                                    <div *ngIf="bookForm.get('count').errors.required">Count Of Book is required.
+                                    </div>
+                                    <div *ngIf="bookForm.get('count').errors.pattern">Please, Enter Numbers.</div>
+                                </div>
                             </div>
-                            <input type="text" class="input_field"  [(ngModel)]="newBook.b_count">
                         </div>
-                    </div>
-                    <button class="submit" (click)="bookSubmit()">Submit</button>
+                        <button class="submit" (click)="bookSubmit()" data-bs-toggle="offcanvas">Submit</button>
+                    </form>
                 </div>
-    
             </div>
         </div>
-      </div>
-     
-  </div>
-<button type="button" class="btn btn-md btn-outline-primary button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample1" aria-controls="offcanvasExample1">Add Book Here</button>
+    </div>
+
+</div>
+<button type="button" class="btn btn-md btn-outline-primary button" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample1" aria-controls="offcanvasExample1" (click)="add()">Add Book Here</button>
 <!-- bookList -->
 <section class="books">
     <div class="container">
         <h2><b>All Reviews</b></h2>
-        <!-- <div class="row">
-            <div class="col-lg-3" *ngFor="let mg of magazine">
-                <div class="block">
-                    <div class="book_img">
-                        <img src="{{mg.image}}">
-                    </div>
-                    <div class="book_info">
-                        <h4>
-                            {{mg.name}}
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="row">
-            <div class="col-lg-4  col-12" *ngFor="let book of books">
-                <div class=" block">
+            <div class="col-lg-4  col-12"  *ngFor="let book of books">
+                <div class=" block" *ngIf="book?.b_status == 1">
+                    <!-- <div class="overlay" *ngIf="book?.b_status == 0">deleted</div> -->
                     <div class="book_img">
                         <img src="https://content.wepik.com/statics/8476219/preview-page0.jpg">
                     </div>
@@ -109,29 +128,54 @@
                         <span>{{book.b_description}}</span>
                     </div>
                     <div class="mt-4">
-                        <button class="btn btn-outline-primary " id="update" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample1" aria-controls="offcanvasExample1">Update</button>
-                        <button class="btn btn-outline-danger " id="delete" data-bs-toggle="modal" data-bs-target="#exampleModal" >Delete</button>
+                        <button class="btn btn-outline-primary " id="update" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasExample1" aria-controls="offcanvasExample1"
+                            (click)="edit(book)">Update</button>
+                        <button class="btn btn-outline-danger " id="delete" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" (click)="delete(book)">Delete</button>
+                    </div>
+
+                </div>
+                <div class="block" *ngIf="book?.b_status == 0" style="background-color:rgba(191, 187,187, 0.5);">
+                    <div class="book_img">
+                        <img src="https://content.wepik.com/statics/8476219/preview-page0.jpg">
+                    </div>
+                    <div class="book_info">
+                        <h4>
+                            <b>{{book.b_title}}</b>
+                        </h4>
+                        <h4>
+                            <i> {{book.b_author}}</i>
+                        </h4>
+                        <span>{{book.b_description}}</span>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn btn-outline-primary " id="update" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasExample1" aria-controls="offcanvasExample1">Update</button>
+                        <button class="btn btn-outline-danger " id="delete" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" (click)="action(book)">Delete</button>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
     <!-- delete model -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are You Sure You Want TO <b> Delete</b>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteBook()" data-bs-dismiss="modal">Yes</button>
+                </div>
             </div>
-            <div class="modal-body">
-              Are You Sure You Want TO <b> Delete</b>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-              <button type="button" class="btn btn-danger">Yes</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 </section>

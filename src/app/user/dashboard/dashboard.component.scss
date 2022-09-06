@@ -8,13 +8,14 @@
         border-radius: 8px;
         cursor: pointer;
        // background:#3498db;
-       background: white;
+       background:#fff;
         box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
        
         
     }
     .book_info {
-        padding: 25px 15px;
+         padding: 25px 15px;
+        text-align: center;
     
 
     h4 {
@@ -26,9 +27,9 @@
         margin-bottom: 5px;
     }
 }
-    .arrow{
-        font-size: 20px;
-    }
+    // .arrow{
+    //     font-size: 20px;
+    // }
 }
 .search{
     padding: 2% 0;

@@ -17,19 +17,28 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of rows">
+        <tr *ngFor="let row of details,let i=index">
           <td>
-            {{row.sno}}
+            {{i+1}}
           </td>
           <td>
             {{row.bookname}}
           </td>
           <td>
-            {{row.bookId}}
+            {{row.issued_date}}
           </td>
-          <td><i class="fas fa-angle-double-right text-success" data-bs-toggle="modal"
-              data-bs-target="#exampleModal"></i></td>
-        </tr>
+          <td>
+            {{row.exp_returndate}}
+          </td>
+          <td>
+            {{row?.t_fine}}
+          </td>
+           <td *ngIf="row?.t_status == 1">
+            <i class="fas fa-undo text-danger" data-bs-toggle="modal"
+              data-bs-target="#exampleModal" (click)="return(row)"></i></td> 
+              <td *ngIf="row?.t_status == 0">
+                <i class="fas fa-undo text-warning"></i></td> 
+        </tr> 
       </tbody>
     </table>
   </div>
@@ -42,11 +51,17 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-        You Want To Take This <b>Book</b>
+        You Want To Return This Book &nbsp; <span class="text-success"><b>{{bookName}}</b></span>
+        </div>
+        <div>
+          <label>
+            Select Date
+          </label>
+          <input type="date" class="input_field" [(ngModel)]="date">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-          <button type="button" class="btn btn-danger">Yes</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="returnBook()">Yes</button>
         </div>
       </div>
     </div>

@@ -10,15 +10,87 @@
                 </div>
             </div>
             <div class="col-lg-9">
-                <div class="btn">
-                    <i class="fas fa-user-circle" (click)="logOut()"> <i>{{Name}}</i></i>
-                    <div class="effect">
-                        <span><b>Sign Out</b></span>
-                    </div>
-                </div>
-                
+                    <div class="dropdown btn">
+                        <i class="fas fa-user-circle" data-bs-toggle="dropdown"></i>
+                        
+                        <ul class="dropdown-menu">
+                          <li><button class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Edit Profile</button></li>
+                          <li><button class="dropdown-item" (click)="logOut()">Sign Out</button></li>
+                        </ul>
+                    </div><i style="float: right; margin-top:20px"><b>{{Name}}</b></i>
             </div>
         </div>
     </div>
-
 </header>
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel"></h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="container">
+        <div class="signup" id="signup">
+            <h2>
+                 Profile
+            </h2>
+            <form class="block1" [formGroup]="updateForm" (ngSubmit)="update(updateForm.value)">
+                
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div>
+                            <label>Name</label>
+                        </div>
+                        <input type="text" class="input_field form-control" formControlName="new_name" >
+                        <div *ngIf="updateForm.get('new_name').touched && updateForm.get('new_name').invalid"
+                            class="alert alert-danger">
+                            <div *ngIf="updateForm.get('new_name').errors.required">Name is required.</div>
+                            <div *ngIf="updateForm.get('new_name').errors.pattern">Please, Enter char.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div>
+                            <label>Email</label>
+                        </div>
+                        <input type="email" class="input_field form-control" formControlName="new_email"  >
+                        <div *ngIf="updateForm.get('new_email').touched && updateForm.get('new_email').invalid"
+                            class="alert alert-danger">
+                            <div *ngIf="updateForm.get('new_email').errors.required">Email is required.</div>
+                            <!-- <div *ngIf="updateForm.get('new_email').errors.pattern">Please, Enter @.</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div>
+                            <label> Phone Number</label>
+                        </div>
+                        <input type="number" class="input_field form-control" formControlName="new_phno" >
+                        <div *ngIf="updateForm.get('new_phno').touched && updateForm.get('new_phno').invalid"
+                            class="alert alert-danger">
+                            <div *ngIf="updateForm.get('new_phno').errors.required">Phone Number is required.</div>
+                        </div>  
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div>
+                            <label>Date Of Birth</label>
+                        </div>
+                        <input type="date" class="input_field form-control" formControlName="new_dob" > 
+                        <div *ngIf="updateForm.get('new_dob').touched && updateForm.get('new_dob').invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="updateForm.get('new_dob').errors.required">Date Of Birth is required.</div>
+                    </div>                
+                    </div>
+                </div>
+                <button class="submit" type="submit">Submit</button>
+            </form>
+
+        </div>
+    </div>
+  </div>
+</div>

@@ -21,7 +21,10 @@ export class ApiService {
  
 
   constructor(private httpclient:HttpClient ,private router:Router) { }
- 
+//  deleteGet(url,body,headers){
+//   return this.httpclient.get(url,body,headers)
+
+//  }
   get(url,headers){
     return this.httpclient.get(url,headers);
   }

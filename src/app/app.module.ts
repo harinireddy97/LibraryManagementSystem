@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
@@ -30,6 +30,7 @@ import { AuthGuard } from './auth/auth.guard';
     ContactsComponent,
     NewsComponent,
     FooterComponent,
+    
    
   ],
   imports: [
@@ -39,7 +40,7 @@ import { AuthGuard } from './auth/auth.guard';
     FormsModule,
     UserRoutingModule,
     BrowserAnimationsModule,AdminRoutingModule,
-    HttpClientModule
+    HttpClientModule,ReactiveFormsModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

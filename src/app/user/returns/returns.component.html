@@ -16,18 +16,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of rows">
+        <tr *ngFor="let row of details,let i =index">
           <td>
-            {{row.sno}}
+            {{i+1}}
           </td>
           <td>
             {{row.bookname}}
           </td>
           <td>
-            {{row.bookId}}
+            {{row.copy_id}}
           </td>
           <td>
-            {{row.returndate}}
+            {{row.exp_returndate}}
+          </td>
+          <td>
+            {{row?.t_fine}}
           </td>
           <td><i class="fas fa-undo text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
           </td>
@@ -36,7 +39,7 @@
       </tbody>
     </table>
   </div>
-  <!-- delete -->
+  <!-- return -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

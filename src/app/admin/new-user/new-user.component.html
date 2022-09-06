@@ -15,19 +15,29 @@
                 <span class="icon_button"><i class="fab fa-facebook-square"></i>Facebook</span>
                 <span class="img_button"><i class="fab fa-google"></i>Google</span>
             </div> -->
-            <div class="block">
+            <form class="block" [formGroup]="formData" (ngSubmit)="addUser(formData.value)">
                 <div class="row">
                     <div class="col-lg-6 col-12">
                         <div>
                             <label>Name</label>
                         </div>
-                        <input type="text" id="name" class="input_field"  [(ngModel)]="formData.u_name">
+                        <input type="text" id="name" class=" input_field form-control"  formControlName="u_name">
+                        <div *ngIf="formData.get('u_name').touched && formData.get('u_name').invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="formData.get('u_name').errors.required">Name is required.</div>
+                        <div *ngIf="formData.get('u_name').errors.pattern">Please, Enter chacters </div>
+                      </div>
                     </div>
                     <div class="col-lg-6 col-12">
                         <div>
                             <label> UserName</label>
                         </div>
-                        <input type="email"  class="input_field"  [(ngModel)]="formData.u_username" >
+                        <input type="email"  class=" input_field form-control"  formControlName="u_username" >
+                        <div *ngIf="formData.get('u_username').touched && formData.get('u_username').invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="formData.get('u_username').errors.required">User Name is required.</div>
+                        <div *ngIf="formData.get('u_username').errors.pattern">Please, Enter chacters with @ </div>
+                      </div>
                     </div>
                     
                 </div>
@@ -36,13 +46,23 @@
                         <div>
                             <label> Password</label>
                         </div>
-                        <input type="password" id="pass" class="input_field"  [(ngModel)]="formData.u_password" >
+                        <input type="password" id="pass" class=" input_field form-control"  formControlName="u_password" >
+                        <div *ngIf="formData.get('u_password').touched && formData.get('u_password').invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="formData.get('u_password').errors.required">Password is required.</div>
+                        <div *ngIf="formData.get('u_password').errors.pattern">Please, Enter  chacters & num </div>
+                      </div>
                     </div>
                     <div class="col-lg-6 col-12">
                         <div>
                             <label> PhoneNumber</label>
                         </div>
-                        <input type="phone" id="num" class="input_field" maxlength="10"  [(ngModel)]="formData.u_phno">
+                        <input type="phone" id="num" class=" input_field form-control" maxlength="10"  formControlName="u_phno">
+                        <div *ngIf="formData.get('u_phno').touched && formData.get('u_phno').invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="formData.get('u_phno').errors.required">PhoneNumber is required.</div>
+                        <div *ngIf="formData.get('u_phno').errors.pattern">Please, Enter Number</div>
+                      </div>
                     </div>
                     
                     
@@ -52,19 +72,30 @@
                         <div>
                             <label> Email</label>
                         </div> 
-                        <input type="email" id="mail" class="input_field"  [(ngModel)]="formData.u_email">
+                        <input type="email" id="mail" class=" input_field form-control" formControlName="u_email">
+                        <div *ngIf="formData.get('u_email').touched && formData.get('u_email').invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="formData.get('u_email').errors.required">PhoneNumber is required.</div>
+                        <div *ngIf="formData.get('u_email').errors.pattern">Please, Enter Number</div>
+                      </div>
                     </div>
                     <div class="col-lg-6 col-12">
                         <div>
                             <label> Date Of Birth</label>
                         </div>
-                        <input type="date" id="dob" class="input_field"  min="1980-01-01" max="2022-12-31"
-                        [(ngModel)]="formData.u_dob">
+                        <input type="date" id="dob" class=" input_field form-control"  min="1980-01-01" max="2022-12-31"
+                        formControlName="u_dob">
+                        <div *ngIf="formData.get('u_dob').touched && formData.get('u_dob').invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="formData.get('u_dob').errors.required">DataBirth is required.</div>
+                        <div *ngIf="formData.get('u_dob').errors.pattern">Please, Enter Data Of Birth</div>
+                      </div>
                     </div>
                    
                 </div>
-               <button class="btn" (click)="addUser()">Submit</button>
-            </div>
+               <button class="btn" type="submit">Submit</button>
+               
+            </form>
            
         </div>
     </div>

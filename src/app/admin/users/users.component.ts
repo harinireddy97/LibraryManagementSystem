@@ -10,30 +10,8 @@ import { ApiService } from 'src/app/service/apiService/api.service';
 export class UsersComponent implements OnInit {
   current_user : any = "";
   access_token : any = "";
-
-//  users=[
-//   {
-//     id:1,
-//     profile:"../assets/profile.png",
-//     name:"Name"
-//   },
-//   {
-//     id:2,
-//     profile:"../assets/profile.png",
-//     name:"Name"
-//   },
-//   {
-//     id:3,
-//     profile:"../assets/profile.png",
-//     name:"Name"
-//   }
-
-//  ]
-
  public users:object=[];
 
-
- 
  constructor(private apiService:ApiService) { }
 
  ngOnInit(): void {
@@ -45,7 +23,7 @@ export class UsersComponent implements OnInit {
 
  getUsers(){
   let headers = { 'Content-Type': 'application/json', "Authorization": "Bearer " + this.access_token };
-  this.apiService.get(`http://192.168.0.156/boilerplate/api/web/v1/libmag/seealluser?username=${this.current_user}`, { headers, responseType: 'json' })
+  this.apiService.get(`http://192.168.1.123/boilerplate/api/web/v1/libmag/seealluser?username=${this.current_user}`, { headers, responseType: 'json' })
   .subscribe((res : any) => {
     this.users = res.data;
    
@@ -55,7 +33,7 @@ export class UsersComponent implements OnInit {
  }
  userButtonClicked(user){
 
-  window.location.href='../singleUser?u_id='+ user.u_id;
+  window.location.href='../userList?u_id='+ user.u_id;
   console.log(user.u_id)
 }
 

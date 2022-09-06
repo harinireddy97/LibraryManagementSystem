@@ -1,5 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/service/apiService/api.service';
 
 @Component({
@@ -10,72 +11,25 @@ import { ApiService } from 'src/app/service/apiService/api.service';
 export class BooksListComponent implements OnInit {
   current_user : any = "";
   access_token : any = "";
-  // magazine=[
-  //   {
-  //     id:1,
-  //     image:"https://marketplace.canva.com/EAFAj6djfbU/1/0/283w/canva-black-orange-elegant-modern-car-magazine-e3kL-pFIs-A.jpg",
-  //     name:"Black Orange Elegant Modern Car Magazine"
-  //   },
-  //   {
-  //     id:2,
-  //     image:"https://marketplace.canva.com/EAFAj6djfbU/1/0/283w/canva-black-orange-elegant-modern-car-magazine-e3kL-pFIs-A.jpg",
-  //     name:"Black Orange Elegant Modern Car Magazine"
-  //   },
-  //   {
-  //     id:3,
-  //     image:"https://marketplace.canva.com/EAFAj6djfbU/1/0/283w/canva-black-orange-elegant-modern-car-magazine-e3kL-pFIs-A.jpg",
-  //     name:"Black Orange Elegant Modern Car Magazine"
-  //   },
-  //   {
-  //     id:4,
-  //     image:"https://marketplace.canva.com/EAFAj6djfbU/1/0/283w/canva-black-orange-elegant-modern-car-magazine-e3kL-pFIs-A.jpg",
-  //     name:"Black Orange Elegant Modern Car Magazine"
-  //   }
-  // ]
-
-  // books=[
-  //   {
-  //   id:1,
-  //   image:"https://bp5-assets-2.s3.us-east-2.amazonaws.com/wp-content/uploads/2022/05/31143032/cranewife.jpg",
-  //   name:"The Crane Wife",
-  //   authorName:"Review by Carla Jean Whitley",
-  //   description:"In this collection of essays, CJ Hauser excavates her past loves and losses, thoughtfully examines their aftermath and declares the pain of love to be worth the risk."
-  // },
-  // {
-  //   id:2,
-  //   image:"https://bp5-assets-2.s3.us-east-2.amazonaws.com/wp-content/uploads/2022/05/31144933/normalfamily.jpg",
-  //   name:"Normal Family",
-  //   authorName:"Review by Jessica Wakeman",
-  //   description:"Is there anything original left to say about surviving a dysfunctional upbringing? Normal Family by Chrysta Bilton takes this question almost as a dare."
-  // },
-  // {
-  //   id:3,
-  //   image:"https://bp5-assets-2.s3.us-east-2.amazonaws.com/wp-content/uploads/2022/05/31143107/deathbybubbletea.jpg",
-  //   name:"Death by Bubble Tea",
-  //   authorName:"Review by Jamie Orsini",
-  //   description:"Death by Bubble Tea is a heartfelt and delicious mystery that, in a brilliant choice by author Jennifer J. Chow, centers on a family-run food stall."
-  // },
-  // {
-  //   id:4,
-  //   image:"https://bp5-assets-2.s3.us-east-2.amazonaws.com/wp-content/uploads/2022/05/31143652/hawkmountain.jpg",
-  //   name:"Hawk Mountain",
-  //   authorName:"Review by Maya Fleischmann",
-  //   description:"With haunting prose and deeply atmospheric descriptions, Conner Habib’s Hawk Mountain is a disturbing descent into the convulsions of the human mind and heart."
-  // },
-  // ]
+  bookForm: any;
    public books:object=[]
-   public newBook:any={
-    b_title:"",
-    b_author:"",
-    b_catagory:"",
-    b_description:"",
-    b_count:""
-
-   }
+  book_id
+  bookList
+  book
+  new_title: any;
+  new_catagory: any;
+  new_author: any;
  
-  constructor(private apiservice:ApiService) { }
+  constructor(private apiservice:ApiService ,private formbuilder:FormBuilder) { }
 
   ngOnInit(): void {
+    this.bookForm = this.formbuilder.group({
+      bookName:['',[Validators.required,Validators.pattern("^[a-zA-Z]+$")]],
+      author:['', [Validators.required, Validators.pattern("^[a-zA-Z]+$")]]  ,
+      catagory:['',[Validators.required, Validators.pattern("^[a-zA-Z]+$")]],   
+      description:['',[Validators.required, Validators.pattern("^[a-zA-Z]+$")]],
+      count:['',[Validators.required,Validators.pattern("^[0-9]+$")]]
+      })
     this.access_token = localStorage.getItem("access_token")
     this.current_user = localStorage.getItem("user_name")
     this.bookDetails();
@@ -84,19 +38,73 @@ export class BooksListComponent implements OnInit {
   bookDetails(){
   
     let headers = { 'Content-Type': 'application/json', "Authorization": "Bearer " + this.access_token };
-    this.apiservice.get(`http://192.168.0.156/boilerplate/api/web/v1/libmag/seebook?username=${this.current_user}`,{ headers, responseType: 'json' })
+    this.apiservice.get(`http://192.168.1.123/boilerplate/api/web/v1/libmag/seebook?username=${this.current_user}`,{ headers, responseType: 'json' })
     .subscribe((res : any) => {
       this.books = res.data;
-     
-     console.log(res)
+    
+     console.log(this.books)
+    
   });
 }
+add(){
+  this.book = "add"
+}
+delete(data){
+  this.book_id = data.b_id
+}
+edit(data)
+{
+  this.book ="edit"
+  this.new_title  = data.b_title ,
+  this.new_author = data.b_author ,
+  this.new_catagory = data.b_catagory 
+  this.book_id = data .b_id
+}
+
 bookSubmit(){
-  console.log(this.newBook)
+  if(this.book == "add"){
+  let newBook={
+    b_title:this.bookForm.value.bookName,
+    b_author:this.bookForm.value.author,
+    b_catagory:this.bookForm.value.catagory,
+    b_description:this.bookForm.value.description,
+    b_count:this.bookForm.value.count
+
+   }
+  console.log(newBook)
   let headers = { 'Content-Type': 'application/json', "Authorization": "Bearer " + this.access_token };
-  this.apiservice.post(`http://192.168.0.156/boilerplate/api/web/v1/libmag/enternewbook?username=${this.current_user}`,this.newBook,{ headers, responseType: 'json' })
+  this.apiservice.post(`http://192.168.1.123/boilerplate/api/web/v1/libmag/enternewbook?username=${this.current_user}`,newBook,{ headers, responseType: 'json' })
   .subscribe((res)=>
   console.log(res));window.location.href="../booksList"
  
+}else if(this.book == "edit"){
+
+  let payload={
+    new_title :this.new_title,
+    new_author : this.new_author,
+    new_catagory :this.new_catagory,
+    book_id : this.book_id
+  }
+
+
+  let headers = { 'Content-Type': 'application/json', "Authorization": "Bearer " + this.access_token };
+
+  this.apiservice.post(`http://192.168.1.123/boilerplate/api/web/v1/libmag/updatebook?username=${this.current_user}`,payload,{headers,responseType:'json'})
+  .subscribe((res:any)=> {
+    payload = res.data
+    console.log(payload)
+  })
 }
+this.bookDetails()
+}
+
+
+deleteBook(){
+  let headers = { 'Content-Type': 'application/json', "Authorization": "Bearer " + this.access_token };
+  this.apiservice.get(`http://192.168.1.123/boilerplate/api/web/v1/libmag/deletebook?username=${this.current_user}&book_id=${this.book_id}`,{ headers, responseType: 'json' })
+  .subscribe((res)=>{
+    console.log(res)
+  })
+}
+
 }
